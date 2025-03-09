@@ -46,6 +46,11 @@
     
 }
 
+#more,#more2,#more3,#more4 {display: none;}
+#myBtn ,#myBtn2,#myBtn3,#myBtn4{
+    color: var(--grey-bg);
+    background-color: transparent;
+}
 
 * {
     margin: 0;
