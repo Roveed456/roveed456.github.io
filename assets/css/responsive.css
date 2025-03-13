@@ -1,10 +1,3 @@
-/*
-* ----------------------------------------------------------------------------------------
-Author       : Tanvir Hossain
-Template Name: Nino - Premium Portfolio Template
-Version      : 1.0                                          
-* ----------------------------------------------------------------------------------------
-*/
 
 
 /* Medium Layout: 1280px. */
@@ -240,6 +233,10 @@ Version      : 1.0
 @media only screen and (max-width: 767px) {
     body {
         overflow-x: hidden;
+
+    }
+    .hero-image img {
+        rotate: 0deg !important;
 
     }
 .single-page-hero-area h2 {

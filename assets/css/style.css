@@ -2810,9 +2810,3 @@ body.loaded {
     }
 }
 
-@media only screen and (max-width: 680px) {
-    .hero-image img {
-        rotate: 0deg !important;
-
-    }
-  }
