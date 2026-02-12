@@ -41,6 +41,10 @@
     <!-- RESPONSIVE CSS -->
     <link rel="stylesheet" href="assets/css/responsive.css">
     <link href="assets/css/brands.min.css" rel="stylesheet" />
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -630,7 +634,7 @@
     <!-- START SKILL DESIGN AREA -->
     <section id="skills" class="skill-area position-relative">
 
-         <div class=" bg-elementback w-100 h-75 position-absolute top-50  "> </div>
+        <div class=" bg-elementback w-100 h-75 position-absolute top-50  "> </div>
 
         <div class="container position-relative">
             <div class="container-inner">
@@ -833,7 +837,7 @@
     <!-- START CONTACT DESIGN AREA -->
     <section id="contact" class="contact-area position-relative">
 
-         <div class=" bg-elementback w-50 h-50  position-absolute top-0 end-0 "> </div>
+        <div class=" bg-elementback w-50 h-50  position-absolute top-0 end-0 "> </div>
 
         <div class="container position-relative">
             <div class="row">
@@ -897,14 +901,13 @@
                 <!-- START CONTACT FORM DESIGN AREA -->
                 <div class="col-lg-8">
                     <div class="contact-form contact-form-area wow fadeInUp delay-0-4s">
-                        <form id="contactForm" class="contact-form" action="#" method="post">
+                        <form id="contact-form" class="contact-form" >
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="name">Full Name</label>
-                                        <input type="text" id="name" class="form-control" value=""
-                                            placeholder="Steve Milner" required=""
-                                            data-error="Please enter your Name" />
+                                        <input type="text" name="name" id="name" class="form-control" value=""
+                                            placeholder="Steve Milner" required data-error="Please enter your Name" />
                                         <label for="name" class="for-icon"><i class="far fa-user"></i></label>
                                         <div class="help-block with-errors"></div>
                                     </div>
@@ -912,20 +915,48 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="email">Email Address</label>
-                                        <input type="email" id="email" class="form-control" value=""
-                                            placeholder="hello@websitename.com" required=""
+                                        <input type="email" name="email" id="email" class="form-control" value=""
+                                            placeholder="hello@websitename.com" required
                                             data-error="Please enter your Email" />
                                         <label for="email" class="for-icon"><i class="far fa-envelope"></i></label>
                                         <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="project_type">Project Type</label>
+                                        <!-- Project Type -->
+                                        <select class="form-control" name="project_type" required>
+                                            <option value="">Select Project Type</option>
+                                            <option value="Website Development">Website Development</option>
+                                            <option value="Ecommerce Website">Ecommerce Website</option>
+                                            <option value="Web Application">Web Application</option>
+                                            <option value="Portfolio Website">Portfolio Website</option>
+                                            <option value="Other">Other</option>
+                                        </select>
+
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+
+                                        <label for="budget">Budget</label>
+                                        <!-- Budget -->
+                                        <select class="form-control" name="budget" required>
+                                            <option value="">Select Budget</option>
+                                            <option value="$100 - $500">$100 - $500</option>
+                                            <option value="$500 - $1000">$500 - $1000</option>
+                                            <option value="$1000 - $3000">$1000 - $3000</option>
+                                            <option value="$3000+">$3000+</option>
+                                        </select>
+                                    </div>
+                                </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <label for="name">Subject</label>
-                                        <input type="text" id="subject" class="form-control" value=""
-                                            placeholder="Your Subject" required=""
-                                            data-error="Please enter your Name" />
-                                        <label for="name" class="for-icon"><i class="far fa-user"></i></label>
+                                        <label for="subject">Subject</label>
+                                        <input type="text" name="subject" id="subject" class="form-control" value=""
+                                            placeholder="Your Subject" required data-error="Please enter your Subject" />
+                                        <label for="subject" class="for-icon"><i class="far fa-user"></i></label>
                                         <div class="help-block with-errors"></div>
                                     </div>
                                 </div>
@@ -933,7 +964,7 @@
                                     <div class="form-group">
                                         <label for="message">Your Message</label>
                                         <textarea name="message" id="message" class="form-control" rows="4"
-                                            placeholder="Write Your message" required=""
+                                            placeholder="Write Your message" required
                                             data-error="Please Write your Message"></textarea>
                                         <div class="help-block with-errors"></div>
                                     </div>
@@ -947,9 +978,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-12 text-center">
-                                    <p class="input-success">We have received your mail, We will get back to you soon!
-                                    </p>
-                                    <p class="input-error">Sorry, Message could not send! Please try again.</p>
+                                   <p id="status"></p>
                                 </div>
                             </div>
                         </form>
@@ -966,7 +995,7 @@
     <!-- START FOOTER DESIGN AREA -->
     <footer class="main-footer position-relative">
 
-               <div class=" bg-elementback w-100 h-75 position-absolute top-50  "> </div>
+        <div class=" bg-elementback w-100 h-75 position-absolute top-50  "> </div>
 
         <div class="container position-relative">
             <div class="row">
@@ -1037,6 +1066,33 @@
     <script src="assets/js/wow.min.js"></script>
     <!-- SCRIPT JS-->
     <script src="assets/js/script.js"></script>
+
+
+<script>
+(function() {
+    emailjs.init("RE-8TCHBuk3ZErNue");
+})();
+
+document.getElementById("contact-form")
+.addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    emailjs.sendForm(
+        "service_zfdmmfm",
+        "template_on79cqe",
+        this
+    ).then(function() {
+        document.getElementById("status").innerHTML = "✅ Message sent successfully!";
+        document.getElementById("contact-form").reset();
+    }, function(error) {
+        document.getElementById("status").innerHTML = "❌ Failed to send message.";
+        console.log(error);
+    });
+});
+</script>
+
+
+
 </body>
 
 </html>

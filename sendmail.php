@@ -1,42 +1,46 @@
 <?php
-// Variables
-$name = trim($_POST['name']);
-$email = trim($_POST['email']);
-$subject = trim($_POST['subject']);
-$message = trim($_POST['message']);
 
-// Email address validation - works with php 5.2+
-function is_email_valid($email) {
-	return filter_var($email, FILTER_VALIDATE_EMAIL);
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+
+    // Sanitize input
+    $name    = trim($_POST['name'] ?? '');
+    $email   = trim($_POST['email'] ?? '');
+    $subject = trim($_POST['subject'] ?? '');
+    $message = trim($_POST['message'] ?? '');
+
+    // Validate required fields
+    if (empty($name) || empty($email) || empty($subject) || empty($message)) {
+        exit("All fields are required.");
+    }
+
+    // Validate email
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        exit("Invalid email address.");
+    }
+
+    // Prevent header injection
+    $pattern = "/(content-type|bcc:|cc:|to:)/i";
+    if (preg_match($pattern, $name . $email . $message)) {
+        exit("Invalid input detected.");
+    }
+
+    $to = "roveedsiddiqui456@gmail.com";
+
+    $body = "
+        <strong>Name:</strong> {$name}<br>
+        <strong>Email:</strong> {$email}<br><br>
+        <strong>Message:</strong><br>{$message}
+    ";
+
+    $headers  = "From: {$name} <{$email}>\r\n";
+    $headers .= "Reply-To: {$email}\r\n";
+    $headers .= "MIME-Version: 1.0\r\n";
+    $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
+
+    if (mail($to, $subject, $body, $headers)) {
+        echo "success";
+    } else {
+        echo "error";
+    }
 }
-
-
-if( isset($name) && isset($email) && isset($subject) && isset($message) && is_email_valid($email) ) {
-
-	// Avoid Email Injection and Mail Form Script Hijacking
-	$pattern = "/(content-type|bcc:|cc:|to:)/i";
-	if( preg_match($pattern, $name) || preg_match($pattern, $email) || preg_match($pattern, $message) ) {
-		exit;
-	}
-
-	// Email will be send
-	$to = "roveedsiddiqui456@gmail.com"; // Change with your email address
-	$sub = $subject; // You can define email subject
-	// HTML Elements for Email Body
-	$body = <<<EOD
-	<strong>Name:</strong> $name <br>
-	<strong>Email:</strong> <a href="mailto:$email?subject=feedback" "email me">$email</a> <br> <br>
-	<strong>Message:</strong> $message <br>
-EOD;
-//Must end on first column
-	
-	$headers = "From: $name <$email>\r\n";
-	$headers .= 'MIME-Version: 1.0' . "\r\n";
-	$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-
-	// PHP email sender
-	mail($to, $sub, $body, $headers);
-}
-
-
 ?>

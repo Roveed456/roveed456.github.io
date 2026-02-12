@@ -329,32 +329,30 @@
         return pattern.test(emailAddress);
 
     }
-    $("#contactForm").on('submit', function (e) {
-        e.preventDefault();
-        var data = {
-            name: $("#name").val(),
-            email: $("#email").val(),
-            subject: $("#subject").val(),
-            message: $("#message").val()
-        };
+    // $("#contactForm").on('submit', function (e) {
+    //     e.preventDefault();
+    //     var data = {
+    //         name: $("#name").val(),
+    //         email: $("#email").val(),
+    //         subject: $("#subject").val(),
+    //         message: $("#message").val()
+    //     };
 
-        if (isValidEmail(data['email']) && (data['message'].length > 1) && (data['name'].length > 1) && (data['subject'].length > 1)) {
-            $.ajax({
-                type: "POST",
-                url: "sendmail.php",
-                data: data,
-                success: function () {
-                    $('#contactForm .input-success').delay(500).fadeIn(1000);
-                    $('#contactForm .input-error').fadeOut(500);
-                }
-            });
-        } else {
-            $('#contactForm .input-error').delay(500).fadeIn(1000);
-            $('#contactForm .input-success').fadeOut(500);
-        }
+    //     if (isValidEmail(data['email']) && (data['message'].length > 1) && (data['name'].length > 1) && (data['subject'].length > 1)) {
+    //         $.ajax({
+               
+    //             success: function () {
+    //                 $('#contactForm .input-success').delay(500).fadeIn(1000);
+    //                 $('#contactForm .input-error').fadeOut(500);
+    //             }
+    //         });
+    //     } else {
+    //         $('#contactForm .input-error').delay(500).fadeIn(1000);
+    //         $('#contactForm .input-success').fadeOut(500);
+    //     }
 
-        return false;
-    });
+    //     return false;
+    // });
 
 
     /* ==========================================================================
