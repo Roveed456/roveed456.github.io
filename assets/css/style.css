@@ -1904,12 +1904,12 @@ ul.extra-skills li i {
   transition: 0.5s;
 }
 
-.resume-box:hover .resume-box p {
-  color: var(--heading-color);
+.resume-box:hover.resume-box p {
+  color: #fff;
 }
 
-.resume-box:hover .resume-box span {
-  color: var(--heading-color);
+.resume-box:hover.resume-box span {
+  color: #fff;
 }
 
 .skill-area {
