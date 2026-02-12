@@ -902,11 +902,11 @@ html {
 }
 
 .main-menu ul li .active {
-  color: var(--primary-color);
+  color: var(--heading-color);
 }
 
 .main-menu ul li:hover > a {
-  color: var(--primary-color);
+  color: var(--heading-color);
 }
 
 .main-menu ul li:hover > a:after {
