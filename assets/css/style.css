@@ -1908,6 +1908,10 @@ ul.extra-skills li i {
   color: #fff;
 }
 
+.resume-box:hover.resume-box .resume-date {
+  color: var(--main-color);
+}
+
 .resume-box:hover.resume-box span {
   color: #fff;
 }
