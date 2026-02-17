@@ -2835,6 +2835,11 @@ body.loaded {
   --_animation-duration: 60s;
 }
 
+  .bg-custom {
+    background-color: var(--primary-color);
+    color: white !important; /* optional */
+  }
+
 @-webkit-keyframes scroll {
   to {
     -webkit-transform: translate(calc(-50% - 0.5rem));
