@@ -42,7 +42,7 @@
     <link rel="stylesheet" href="assets/css/responsive.css">
     <link href="assets/css/brands.min.css" rel="stylesheet" />
 
-    
+
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -85,6 +85,8 @@
         </svg>
     </div>
     <!-- / END SCROOL UP DESIGN AREA -->
+  
+
 
 
 
@@ -901,7 +903,7 @@
                 <!-- START CONTACT FORM DESIGN AREA -->
                 <div class="col-lg-8">
                     <div class="contact-form contact-form-area wow fadeInUp delay-0-4s">
-                        <form id="contact-form" class="contact-form" >
+                        <form id="contact-form" class="contact-form">
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
@@ -955,7 +957,8 @@
                                     <div class="form-group">
                                         <label for="subject">Subject</label>
                                         <input type="text" name="subject" id="subject" class="form-control" value=""
-                                            placeholder="Your Subject" required data-error="Please enter your Subject" />
+                                            placeholder="Your Subject" required
+                                            data-error="Please enter your Subject" />
                                         <label for="subject" class="for-icon"><i class="far fa-user"></i></label>
                                         <div class="help-block with-errors"></div>
                                     </div>
@@ -978,7 +981,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-12 text-center">
-                                   <p id="status"></p>
+                                    <p id="status"></p>
                                 </div>
                             </div>
                         </form>
@@ -1068,28 +1071,28 @@
     <script src="assets/js/script.js"></script>
 
 
-<script>
-(function() {
-    emailjs.init("RE-8TCHBuk3ZErNue");
-})();
+    <script>
+        (function () {
+            emailjs.init("RE-8TCHBuk3ZErNue");
+        })();
 
-document.getElementById("contact-form")
-.addEventListener("submit", function(event) {
-    event.preventDefault();
+        document.getElementById("contact-form")
+            .addEventListener("submit", function (event) {
+                event.preventDefault();
 
-    emailjs.sendForm(
-        "service_zfdmmfm",
-        "template_on79cqe",
-        this
-    ).then(function() {
-        document.getElementById("status").innerHTML = "✅ Message sent successfully!";
-        document.getElementById("contact-form").reset();
-    }, function(error) {
-        document.getElementById("status").innerHTML = "❌ Failed to send message.";
-        console.log(error);
-    });
-});
-</script>
+                emailjs.sendForm(
+                    "service_zfdmmfm",
+                    "template_on79cqe",
+                    this
+                ).then(function () {
+                    document.getElementById("status").innerHTML = "✅ Message sent successfully!";
+                    document.getElementById("contact-form").reset();
+                }, function (error) {
+                    document.getElementById("status").innerHTML = "❌ Failed to send message.";
+                    console.log(error);
+                });
+            });
+    </script>
 
 
 

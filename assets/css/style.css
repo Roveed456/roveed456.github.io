@@ -1612,12 +1612,7 @@ h2.about-pre-title {
   transition: 0.5s;
 }
 
-.service-item:hover.service-item h5 {
-  color: var(--heading-color);
-  background: var(--primary-color);
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
-}
+
 
 .service-item h5 {
   margin-bottom: 60px;
@@ -1656,24 +1651,6 @@ h2.about-pre-title {
   font-size: 30px;
 }
 
-.service-item:hover {
-  border-color: var(--primary-color);
-  background: var(--primary-color);
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
-}
-
-.service-item:hover.service-item i {
-  rotate: 45deg;
-}
-.service-item:hover.service-item p {
-  color: var(--heading-color);
-}
-
-.service-item:hover .details-btn {
-  color: var(--black-color);
-  background: var(--primary-color);
-}
 
 .service-item2 {
   border-color: var(--primary-color);
@@ -1897,24 +1874,7 @@ ul.extra-skills li i {
   color: rgb(119, 119, 125);
 }
 
-.resume-box:hover {
-  border-color: var(--primary-color);
-  background: var(--primary-color);
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
-}
 
-.resume-box:hover.resume-box p {
-  color: #fff;
-}
-
-.resume-box:hover.resume-box .resume-date {
-  color: var(--main-color);
-}
-
-.resume-box:hover.resume-box span {
-  color: #fff;
-}
 
 .skill-area {
   padding-top: 120px;
@@ -2887,4 +2847,58 @@ body.loaded {
     -webkit-transform: translate(calc(-50% - 0.5rem));
     transform: translate(calc(-50% - 0.5rem));
   }
+}
+
+@media (hover: hover) and (pointer: fine) {
+
+
+
+.service-item:hover.service-item h5 {
+  color: var(--heading-color);
+  background: var(--primary-color);
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.service-item:hover {
+  border-color: var(--primary-color);
+  background: var(--primary-color);
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.service-item:hover.service-item i {
+  rotate: 45deg;
+}
+.service-item:hover.service-item p {
+  color: var(--heading-color);
+}
+
+.service-item:hover .details-btn {
+  color: var(--black-color);
+  background: var(--primary-color);
+}
+
+
+.resume-box:hover {
+  border-color: var(--primary-color);
+  background: var(--primary-color);
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+
+.resume-box:hover.resume-box p {
+  color: #fff;
+}
+
+.resume-box:hover.resume-box .resume-date {
+  color: var(--main-color);
+}
+
+.resume-box:hover.resume-box span {
+  color: #fff;
+}
+
+
+
 }
