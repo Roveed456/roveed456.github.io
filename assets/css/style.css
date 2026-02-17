@@ -2836,7 +2836,7 @@ body.loaded {
 }
 
   .bg-custom {
-    background-color: var(--primary-color);
+    background-color: #075E54;
     color: white !important; /* optional */
   }
 
