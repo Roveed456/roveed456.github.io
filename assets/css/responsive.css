@@ -1447,3 +1447,19 @@
         padding: 0 15px;
     }
 }
+/* Center the hero photo on small screens */
+@media (max-width: 767px) {
+    .hero-image {
+        display: flex;
+        justify-content: center;
+    }
+
+    .hero-image img {
+        display: block;
+        width: 100% !important;
+        max-width: 340px !important;
+        height: auto !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+    }
+}

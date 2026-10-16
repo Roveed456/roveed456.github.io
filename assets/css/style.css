@@ -1333,6 +1333,7 @@ html {
 
 .hero-image img {
   width: 400px;
+  height: auto;
   text-align: center;
   border-radius: 20px;
   border: 3px solid #fff;
